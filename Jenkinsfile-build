@@ -8,7 +8,7 @@ pipeline {
     environment {
         APP_NAME = "cafeapp"
         IMAGE_NAME = "shreebhat6122/cafeapp:v1"
-        DOCKER_CREDENTIALS = "dockerhub"
+        DOCKER_CREDENTIALS = "dockerhub-cred-id"
     }
 
     stages {
