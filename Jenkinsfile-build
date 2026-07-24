@@ -1,0 +1,86 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven'
+    }
+
+    environment {
+        APP_NAME = "cafeapp"
+        IMAGE_NAME = "shreebhat6122/cafeapp:v1"
+        DOCKER_CREDENTIALS = "dockerhub"
+    }
+
+    stages {
+
+        stage('Checkout Source Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Prepare Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t ${APP_NAME} ."
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: DOCKER_CREDENTIALS,
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Tag Docker Image') {
+            steps {
+                sh "docker tag ${APP_NAME}:latest ${IMAGE_NAME}"
+            }
+        }
+
+        stage('Push Image to Docker Hub') {
+            steps {
+                sh "docker push ${IMAGE_NAME}"
+            }
+        }
+
+        stage('Clean System') {
+            steps {
+                sh '''
+                docker image prune -af
+                docker container prune -f
+                docker system prune -f
+                '''
+            }
+        }
+    }
+
+    post {
+
+        success {
+            echo "Docker Image Successfully Uploaded."
+        }
+
+        failure {
+            echo "Pipeline Failed."
+        }
+
+        always {
+            cleanWs()
+        }
+    }
+}

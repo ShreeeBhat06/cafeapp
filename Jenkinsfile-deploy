@@ -1,0 +1,98 @@
+pipeline {
+
+    agent any
+
+    parameters {
+
+        choice(
+            name: 'ACTION',
+            choices: [
+                'DEPLOY_DATABASE',
+                'DEPLOY_APPLICATION',
+                'REMOVE_APPLICATION',
+                'REMOVE_DATABASE'
+            ],
+            description: 'Select Action'
+        )
+
+    }
+
+    stages {
+
+        stage('Execute Action') {
+
+            steps {
+
+                script {
+
+                    if (params.ACTION == 'DEPLOY_DATABASE') {
+
+                        sh '''
+                        kubectl apply -f kubernetes/namespace.yaml
+                        kubectl apply -f kubernetes/mysql-pv.yaml
+                        kubectl apply -f kubernetes/mysql-pvc.yaml
+                        kubectl apply -f kubernetes/mysql-service.yaml
+                        kubectl apply -f kubernetes/mysql-statefulset.yaml
+                        '''
+
+                    }
+
+                    else if (params.ACTION == 'DEPLOY_APPLICATION') {
+
+                        sh '''
+                        kubectl apply -f kubernetes/app-deployment.yaml
+                        kubectl apply -f kubernetes/app-service.yaml
+                        '''
+
+                    }
+
+                    else if (params.ACTION == 'REMOVE_APPLICATION') {
+
+                        sh '''
+                        kubectl delete -f kubernetes/app-service.yaml
+                        kubectl delete -f kubernetes/app-deployment.yaml
+                        '''
+
+                    }
+
+                    else if (params.ACTION == 'REMOVE_DATABASE') {
+
+                        sh '''
+                        kubectl delete -f kubernetes/mysql-statefulset.yaml
+                        kubectl delete -f kubernetes/mysql-service.yaml
+                        kubectl delete -f kubernetes/mysql-pvc.yaml
+                        kubectl delete -f kubernetes/mysql-pv.yaml
+                        '''
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    post {
+
+        success {
+
+            echo "Kubernetes Operation Completed Successfully."
+
+        }
+
+        failure {
+
+            echo "Pipeline Failed."
+
+        }
+
+        always {
+
+            echo "Pipeline Finished."
+
+        }
+
+    }
+
+}

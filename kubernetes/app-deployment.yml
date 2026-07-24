@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: cafeapp
+  namespace: production
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: cafeapp
+
+  template:
+    metadata:
+      labels:
+        app: cafeapp
+
+    spec:
+      containers:
+      - name: cafeapp
+
+      
+        image: shreebhat6122/cafeapp:v1
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8080
+
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-service:3306/myapplication
+
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+
+        
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: 1234

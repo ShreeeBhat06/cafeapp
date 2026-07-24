@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,8 +16,8 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#1b1410;
-color:#fff;
+background:#111827;
+color:#f8fafc;
 }
 
 nav{
@@ -224,6 +224,539 @@ font-size:42px;
 <p>Open Daily • 8:00 AM – 10:00 PM</p>
 
 <p>Made with ❤️ of Coffee</p>
+
+</footer>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Café Élite | Luxury Coffee Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f0f0f;
+color:#f8f5f1;
+line-height:1.6;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+section{
+padding:90px 8%;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display',serif;
+}
+
+:root{
+--gold:#c8a96a;
+--cream:#f8f5f1;
+--dark:#111;
+--card:#1b1b1b;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:rgba(15,15,15,.55);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:var(--gold);
+font-family:'Playfair Display',serif;
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:var(--gold);
+}
+
+.nav-btn{
+padding:10px 24px;
+background:var(--gold);
+border-radius:30px;
+color:#111;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 25px rgba(200,169,106,.35);
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:760px;
+}
+
+.hero h1{
+font-size:72px;
+line-height:1.1;
+margin-bottom:25px;
+color:white;
+}
+
+.hero p{
+font-size:20px;
+color:#ddd;
+margin-bottom:40px;
+}
+
+.hero a{
+display:inline-block;
+padding:14px 38px;
+background:var(--gold);
+border-radius:40px;
+color:#111;
+font-weight:600;
+transition:.35s;
+}
+
+.hero a:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(200,169,106,.35);
+}
+
+/* MENU */
+
+.menu{
+background:#151515;
+text-align:center;
+}
+
+.menu h2{
+font-size:42px;
+margin-bottom:50px;
+color:var(--gold);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.card{
+background:var(--card);
+padding:35px 25px;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+height:170px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:20px;
+}
+
+.card h3{
+color:var(--gold);
+margin-bottom:10px;
+font-size:25px;
+}
+
+.card p{
+font-size:15px;
+color:#ddd;
+}
+
+.price{
+display:block;
+margin-top:15px;
+font-size:20px;
+font-weight:600;
+color:var(--gold);
+}
+
+/* ABOUT */
+
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:60px;
+align-items:center;
+background:#111;
+}
+
+.about img{
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+.about-text h2{
+font-size:42px;
+color:var(--gold);
+margin-bottom:20px;
+}
+
+.about-text p{
+font-size:16px;
+color:#ddd;
+margin-bottom:18px;
+text-align:justify;
+}
+
+.about-text a{
+display:inline-block;
+margin-top:15px;
+padding:12px 30px;
+background:var(--gold);
+color:#111;
+border-radius:35px;
+font-weight:600;
+transition:.3s;
+}
+
+.about-text a:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(200,169,106,.35);
+}
+
+/* FOOTER */
+
+footer{
+background:#090909;
+padding:45px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h3{
+font-size:30px;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+footer p{
+color:#ccc;
+margin:8px 0;
+}
+
+.socials{
+margin:20px 0;
+display:flex;
+justify-content:center;
+gap:18px;
+}
+
+.socials a{
+width:45px;
+height:45px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+background:#1d1d1d;
+color:var(--gold);
+font-size:20px;
+transition:.3s;
+}
+
+.socials a:hover{
+background:var(--gold);
+color:#111;
+transform:translateY(-4px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:54px;
+}
+
+nav{
+padding:18px 5%;
+}
+
+section{
+padding:70px 5%;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+gap:18px;
+}
+
+nav ul{
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">☕ Café Élite</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<a href="#" class="nav-btn">Reserve</a>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Luxury Coffee.<br>Timeless Moments.</h1>
+
+<p>
+Experience handcrafted coffee, artisan desserts,
+and a premium café atmosphere designed for unforgettable moments.
+</p>
+
+<a href="#menu">Explore Menu</a>
+
+</div>
+
+</section>
+
+<section class="menu" id="menu">
+
+<h2>Signature Collection</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80">
+
+<h3>Espresso</h3>
+
+<p>
+Rich aroma with bold flavors crafted from freshly roasted premium beans.
+</p>
+
+<span class="price">₹180</span>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80">
+
+<h3>Cappuccino</h3>
+
+<p>
+Smooth steamed milk blended with strong espresso and silky foam.
+</p>
+
+<span class="price">₹220</span>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80">
+
+<h3>Chocolate Cake</h3>
+
+<p>
+Layers of moist chocolate sponge finished with rich Belgian chocolate ganache.
+</p>
+
+<span class="price">₹250</span>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80">
+
+<h3>Club Sandwich</h3>
+
+<p>
+Fresh vegetables, premium cheese and grilled bread served with crispy fries.
+</p>
+
+<span class="price">₹210</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="about">
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80"
+alt="Cafe Interior">
+
+</div>
+
+<div class="about-text">
+
+<h2>Where Coffee Meets Elegance</h2>
+
+<p>
+At <strong>Café Élite</strong>, every cup is carefully crafted using
+premium beans sourced from renowned coffee estates. Our chefs prepare
+fresh pastries and gourmet dishes daily, creating the perfect balance
+between flavor, comfort, and sophistication.
+</p>
+
+<p>
+Whether you're catching up with friends, working remotely,
+or enjoying a peaceful evening, our luxurious ambience,
+warm hospitality, and handcrafted beverages make every visit memorable.
+</p>
+
+<p>
+Discover a place where exceptional coffee,
+delightful cuisine, and timeless design come together
+to create an unforgettable café experience.
+</p>
+
+<a href="#menu">View Our Menu</a>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h3>☕ Café Élite</h3>
+
+<p>Luxury Coffee • Artisan Desserts • Premium Experience</p>
+
+<p>Open Daily | 8:00 AM – 10:00 PM</p>
+
+<div class="socials">
+
+<a href="#">📘</a>
+
+<a href="#">📸</a>
+
+<a href="#">🐦</a>
+
+<a href="#">💼</a>
+
+</div>
+
+<p>
+📍 Bangalore, Karnataka
+</p>
+
+<p>
+📞 +91 98765 43210
+</p>
+
+<p>
+✉️ info@cafeelite.com
+</p>
+
+<p style="margin-top:25px;color:#888;">
+© 2026 Café Élite. Crafted with ❤️ and premium coffee.
+</p>
 
 </footer>
 
